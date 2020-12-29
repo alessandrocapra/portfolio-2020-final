@@ -1,16 +1,20 @@
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@300;900&family=Roboto:wght@400;700;900&display=swap");
+
 html {
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
-  font: 112.5%/1.45em georgia, serif, sans-serif;
+  font-size: 112.5%/1.45em;
+  font-family: "Roboto", sans-serif;
   box-sizing: border-box;
   overflow-y: scroll;
 }
+
 body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: hsla(0, 0%, 0%, 0.8);
-  font-family: georgia, serif;
+  font-family: "Roboto", sans-serif;
   font-weight: normal;
   word-wrap: break-word;
   font-kerning: normal;
@@ -71,6 +75,12 @@ strong {
 dfn {
   font-style: italic;
 }
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Merriweather", serif;
+}
 h1 {
   margin-left: 0;
   margin-right: 0;
@@ -81,8 +91,6 @@ h1 {
   padding-top: 0;
   margin-bottom: 1.45rem;
   color: inherit;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   font-weight: bold;
   text-rendering: optimizeLegibility;
   font-size: 2.25rem;
