@@ -1,5 +1,7 @@
 import React from "react"
 import ProjectLayout from "../../components/projectLayout"
+import ProjectSection from "../../components/projectSection"
+import ProjectSummary from "../../components/projectSummary"
 
 const BabbelbordPage = () => (
   <ProjectLayout
@@ -7,7 +9,11 @@ const BabbelbordPage = () => (
     title="Babbelbord"
     areas="User research - prototyping - development"
   >
-    Here goes the content for the Babbelbord project
+    <ProjectSummary>
+      A gamified, personalized conversational system for people with mild
+      moderate dementia and their caretakers/relatives.
+    </ProjectSummary>
+    <ProjectSection></ProjectSection>
   </ProjectLayout>
 )
 

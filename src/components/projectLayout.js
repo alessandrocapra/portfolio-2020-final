@@ -1,7 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import ProjectHeader from "./projectHeader"
-import { ThemeProvider } from "@material-ui/core"
+import { Container, ThemeProvider } from "@material-ui/core"
 import theme from "../theme"
 
 const ProjectLayout = props => {
@@ -12,7 +12,9 @@ const ProjectLayout = props => {
         areas={props.areas}
         headerImage={props.headerImage}
       />
-      <main>{props.children}</main>
+      <Container component="main">
+        {props.children}
+        </Container>
       <footer
         style={{
           marginTop: `2rem`,
