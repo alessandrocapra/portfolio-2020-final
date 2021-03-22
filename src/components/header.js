@@ -1,14 +1,11 @@
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
-import Container from "@material-ui/core/Container"
-import Grid from "@material-ui/core/Grid"
 import React from "react"
 import { Hidden, Menu, MenuItem, Typography } from "@material-ui/core"
 import { styled, makeStyles } from "@material-ui/core/styles"
 
 import AppBar from "@material-ui/core/AppBar"
 import Toolbar from "@material-ui/core/Toolbar"
-import Button from "@material-ui/core/Button"
 import IconButton from "@material-ui/core/IconButton"
 import MenuIcon from "@material-ui/icons/Menu"
 
@@ -25,8 +22,10 @@ const useStyles = makeStyles({
 })
 
 const _Link = styled(({ isProjectPage, ...other }) => <Link {...other} />)({
-  padding: "1rem",
+  padding: "1rem 2rem",
   textDecoration: "none",
+  fontSize: "1.25rem",
+  color: "#051424",
 })
 
 const Header = ({ isProjectPage }) => {
@@ -42,7 +41,7 @@ const Header = ({ isProjectPage }) => {
   }
 
   return (
-    <AppBar position="fixed" color="transparent">
+    <AppBar position="sticky" color="default">
       <Toolbar className={classes.toolBar}>
         <Hidden smUp>
           <IconButton
@@ -54,25 +53,24 @@ const Header = ({ isProjectPage }) => {
             <MenuIcon />
           </IconButton>
         </Hidden>
-        <Typography variant="body1">
-          <_Link
-            to="/"
-            activeClassName={classes.active}
-            isProjectPage={isProjectPage}
-          >
-            Home
-          </_Link>
-        </Typography>
-        <Typography variant="body1">
-          <_Link
-            to="#"
-            onClick={handleProjectsMenu}
-            activeClassName={classes.active}
-            isProjectPage={isProjectPage}
-          >
-            Projects
-          </_Link>
-        </Typography>
+
+        <_Link
+          to="/"
+          activeClassName={classes.active}
+          isProjectPage={isProjectPage}
+        >
+          Home
+        </_Link>
+
+        <_Link
+          to="#"
+          onClick={handleProjectsMenu}
+          activeClassName={classes.active}
+          isProjectPage={isProjectPage}
+        >
+          Projects
+        </_Link>
+
         <Menu
           id="projects-menu"
           anchorEl={anchorEl}
@@ -119,15 +117,14 @@ const Header = ({ isProjectPage }) => {
             Jammin
           </MenuItem>
         </Menu>
-        <Typography variant="body1">
-          <_Link
-            to="/page-2"
-            activeClassName={classes.active}
-            isProjectPage={isProjectPage}
-          >
-            About
-          </_Link>
-        </Typography>
+
+        <_Link
+          to="/page-2"
+          activeClassName={classes.active}
+          isProjectPage={isProjectPage}
+        >
+          About
+        </_Link>
       </Toolbar>
     </AppBar>
   )
