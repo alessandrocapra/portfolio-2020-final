@@ -1,6 +1,13 @@
 import { createMuiTheme } from "@material-ui/core/styles"
 
 const theme = createMuiTheme({
+  overrides: {
+    MuiAppBar: {
+      colorTransparent: {
+        backgroundColor: "rgba(0,0,0,0.35)",
+      },
+    },
+  },
   typography: {
     fontFamily: ["Roboto", "sans-serif"].join(","),
     h1: {
@@ -33,6 +40,7 @@ const theme = createMuiTheme({
       fontWeight: 400,
       fontSize: "1.375rem",
       lineHeight: "155%",
+      color: "#051424",
     },
     subtitle1: {
       fontFamily: ["Merriweather", "serif"].join(","),
