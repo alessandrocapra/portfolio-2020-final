@@ -4,13 +4,7 @@ import React from "react"
 const ProjectSection = props => {
   return (
     <Box py={14} textAlign="center">
-      <Typography
-        variant="h2"
-        gutterBottom
-        style={{ textTransform: "uppercase" }}
-      >
-        Title
-      </Typography>
+      <Typography variant="h2">Title</Typography>
       <Typography
         variant="body1"
         style={{ maxWidth: "45rem", margin: "0 auto" }}

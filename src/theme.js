@@ -20,11 +20,15 @@ const theme = createMuiTheme({
       fontFamily: ["Roboto", "sans-serif"].join(","),
       fontWeight: 900,
       fontSize: "1.75rem",
-      lineHeight: "120%",
+      textTransform: "uppercase",
+      lineHeight: "275%",
       letterSpacing: "0.17em",
     },
     h3: {
       fontFamily: ["Merriweather", "serif"].join(","),
+      fontWeight: 700,
+      fontSize: "2.2rem",
+      lineHeight: "245%",
     },
     h4: {
       fontFamily: ["Merriweather", "serif"].join(","),
