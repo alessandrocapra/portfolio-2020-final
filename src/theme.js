@@ -28,7 +28,8 @@ const theme = createMuiTheme({
       fontFamily: ["Merriweather", "serif"].join(","),
       fontWeight: 700,
       fontSize: "2.2rem",
-      lineHeight: "245%",
+      lineHeight: "138%",
+      paddingBottom: "1.3rem",
     },
     h4: {
       fontFamily: ["Merriweather", "serif"].join(","),

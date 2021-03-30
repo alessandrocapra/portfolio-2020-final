@@ -5,27 +5,40 @@ import Image from "../components/image"
 import SEO from "../components/seo"
 import { Typography, Box, Grid, Chip } from "@material-ui/core"
 
-const ProjectHome = () => {
+const ProjectHome = ({
+  title,
+  description,
+  tags,
+  image = "gatsby-astronaut.png",
+  imagePosition = "left",
+}) => {
+  const topicTags = tags.map(tag => (
+    <Chip label={tag} color="primary" style={{ marginRight: "0.5rem" }} />
+  ))
+
   return (
-    <Grid item xs={12}>
+    <Grid item xs={12} style={{ marginTop: "4rem", marginTop: "4rem" }}>
       <Grid container spacing={4}>
-        <Grid item sm={4}>
-          <Image imgName="gatsby-astronaut.png" />
-        </Grid>
-        <Grid item xs={8}>
-          <Typography variant="h3">Crypto custodian app</Typography>
-          <Typography variant="body1">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta, nam
-            libero enim quasi obcaecati omnis itaque quisquam fugit voluptas
-            eius. Laudantium doloremque dolore illum vel est quasi tempore qui
-            maxime!
-          </Typography>
-          <Box py={2}>
-            <Chip label="UX Design" />
-            <Chip label="UI Design" />
-            <Chip label="React Native" />
-          </Box>
-        </Grid>
+        <Box clone order={imagePosition === "left" ? 1 : 2}>
+          <Grid item sm={6}>
+            <Image imgName="gatsby-astronaut.png" />
+          </Grid>
+        </Box>
+        <Box clone order={imagePosition === "left" ? 2 : 1}>
+          <Grid
+            item
+            xs={6}
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+            }}
+          >
+            <Typography variant="h3">{title}</Typography>
+            <Typography variant="body1">{description}</Typography>
+            <Box py={2}>{topicTags}</Box>
+          </Grid>
+        </Box>
       </Grid>
     </Grid>
   )
@@ -53,7 +66,23 @@ const IndexPage = () => (
       </Typography>
     </Box>
     <Grid container>
-      <ProjectHome />
+      <ProjectHome
+        title="Crypto custodian app"
+        description="Mobile application (developed in React Native) that showcases the capabilites of the Quantoz Nexus API. The main features include buying and selling 6 different cryptocurrencies, while also being able to swap between them."
+        tags={["UX Design", "UI Design", "React Native"]}
+        image="gatsby-astronaut.png"
+      />
+      <ProjectHome
+        title="Whistleblower platform"
+        description="SaaS solution to support the management of a whistleblowing solution within an organization."
+        tags={["UX Design", "UI Design"]}
+        imagePosition="right"
+      />
+      <ProjectHome
+        title="Respiratory exercixes for children affected by Duchenne Muscular Dystrophy"
+        description="A custom breath-analysing hardware coupled with a videogame to encourage children affected by Duchenne Muscular Dystrophy to improve their breathing independently, outside of therapy hours."
+        tags={["UX Design", "UI Design", "React Native"]}
+      />
     </Grid>
   </Layout>
 )
