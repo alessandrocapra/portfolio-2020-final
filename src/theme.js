@@ -7,6 +7,16 @@ const theme = createMuiTheme({
         backgroundColor: "rgba(0,0,0,0.35)",
       },
     },
+    MuiChip: {
+      root: {
+        borderRadius: "0.7rem",
+        marginRight: "0.5rem",
+      },
+      label: {
+        fontSize: "0.95rem",
+        letterSpacing: "1px"
+      },
+    },
   },
   typography: {
     fontFamily: ["Roboto", "sans-serif"].join(","),

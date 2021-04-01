@@ -4,6 +4,7 @@ import Layout from "../components/layout"
 import Image from "../components/image"
 import SEO from "../components/seo"
 import { Typography, Box, Grid, Chip } from "@material-ui/core"
+import { navigate } from "gatsby-link"
 
 const ProjectHome = ({
   title,
@@ -17,11 +18,20 @@ const ProjectHome = ({
   ))
 
   return (
-    <Grid item xs={12} style={{ marginTop: "4rem", marginTop: "4rem" }}>
+    <Grid item xs={12} style={{ marginTop: "10rem", marginTop: "10rem" }}>
       <Grid container spacing={4}>
         <Box clone order={imagePosition === "left" ? 1 : 2}>
-          <Grid item sm={6}>
-            <Image imgName="gatsby-astronaut.png" />
+          <Grid
+            item
+            sm={6}
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+            }}
+            onClick={() => navigate("/project/babbelbord")}
+          >
+            <Image imgName={image} />
           </Grid>
         </Box>
         <Box clone order={imagePosition === "left" ? 2 : 1}>
@@ -32,6 +42,7 @@ const ProjectHome = ({
               display: "flex",
               flexDirection: "column",
               justifyContent: "center",
+              paddingLeft: "4rem",
             }}
           >
             <Typography variant="h3">{title}</Typography>
@@ -70,18 +81,25 @@ const IndexPage = () => (
         title="Crypto custodian app"
         description="Mobile application (developed in React Native) that showcases the capabilites of the Quantoz Nexus API. The main features include buying and selling 6 different cryptocurrencies, while also being able to swap between them."
         tags={["UX Design", "UI Design", "React Native"]}
-        image="gatsby-astronaut.png"
+        image="custodian_home.png"
       />
       <ProjectHome
         title="Whistleblower platform"
         description="SaaS solution to support the management of a whistleblowing solution within an organization."
         tags={["UX Design", "UI Design"]}
-        imagePosition="right"
+        image="whistleblower_home.png"
       />
       <ProjectHome
-        title="Respiratory exercixes for children affected by Duchenne Muscular Dystrophy"
+        title="Respiratory exercises for children affected by Duchenne Muscular Dystrophy"
         description="A custom breath-analysing hardware coupled with a videogame to encourage children affected by Duchenne Muscular Dystrophy to improve their breathing independently, outside of therapy hours."
         tags={["UX Design", "UI Design", "React Native"]}
+        image="thesis_home.png"
+      />
+      <ProjectHome
+        title="Babbelbord"
+        description="A gamified, personalized conversational system for people with mild moderate dementia and their caretakers/relatives."
+        tags={["User research", "Full-stack development"]}
+        image="babbelbord_home.png"
       />
     </Grid>
   </Layout>
