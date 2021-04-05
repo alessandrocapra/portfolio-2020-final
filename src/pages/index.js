@@ -46,7 +46,9 @@ const ProjectHome = ({
             }}
           >
             <Typography variant="h3">{title}</Typography>
-            <Typography variant="body1">{description}</Typography>
+            <Typography variant="body1" style={{ marginBottom: "0.7rem" }}>
+              {description}
+            </Typography>
             <Box py={2}>{topicTags}</Box>
           </Grid>
         </Box>
@@ -64,7 +66,7 @@ const IndexPage = () => (
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
-        height: "60vh",
+        height: "50vh",
       }}
     >
       <Typography variant="h1">Piacere, Alessando</Typography>
@@ -100,6 +102,18 @@ const IndexPage = () => (
         description="A gamified, personalized conversational system for people with mild moderate dementia and their caretakers/relatives."
         tags={["User research", "Full-stack development"]}
         image="babbelbord_home.png"
+      />
+      <ProjectHome
+        title="Beathoven"
+        description="With Beathoven, we researched new ways to allow deaf people to experience music by combining different sensory modalities such as haptics and sight. The final product consisted in a vibrating forearm glove and a VR headset."
+        tags={["User research", "Full-stack development"]}
+        image="beathoven_home.png"
+      />
+      <ProjectHome
+        title="Jammin"
+        description="A gamified, personalized conversational system for people with mild moderate dementia and their caretakers/relatives."
+        tags={["User research", "Full-stack development"]}
+        image="jammin_home.png"
       />
     </Grid>
   </Layout>
