@@ -19,18 +19,22 @@ const useStyles = makeStyles({
   toolBar: {
     justifyContent: "center",
   },
+  projectMenuItem: {
+    fontSize: "0.5rem",
+  },
 })
 
 const _Link = styled(({ isProjectPage, ...other }) => <Link {...other} />)({
   padding: "1rem 2rem",
   textDecoration: "none",
-  fontSize: "1.25rem",
-  color: "#051424",
+  // fontSize: "1.25rem",
+  color: "#fff",
 })
 
 const Header = ({ isProjectPage }) => {
   const classes = useStyles()
   const [anchorEl, setAnchorEl] = React.useState(null)
+  const open = Boolean(anchorEl)
 
   const handleProjectsMenu = event => {
     setAnchorEl(event.currentTarget)
@@ -41,7 +45,11 @@ const Header = ({ isProjectPage }) => {
   }
 
   return (
-    <AppBar position="sticky" color="default">
+    <AppBar
+      position="sticky"
+      color="inherit"
+      style={{ backgroundColor: "#B0151C" }}
+    >
       <Toolbar className={classes.toolBar}>
         <Hidden smUp>
           <IconButton
@@ -64,7 +72,7 @@ const Header = ({ isProjectPage }) => {
 
         <_Link
           to="#"
-          onClick={handleProjectsMenu}
+          onMouseOver={handleProjectsMenu}
           activeClassName={classes.active}
           isProjectPage={isProjectPage}
         >
@@ -72,48 +80,61 @@ const Header = ({ isProjectPage }) => {
         </_Link>
 
         <Menu
-          id="projects-menu"
+          id="project-menu"
           anchorEl={anchorEl}
+          getContentAnchorEl={null}
+          anchorOrigin={{
+            vertical: "bottom",
+            horizontal: "left",
+          }}
+          transformOrigin={{
+            vertical: "top",
+            horizontal: "left",
+          }}
           keepMounted
-          open={Boolean(anchorEl)}
+          open={open}
           onClose={handleClose}
         >
           <MenuItem
             onClick={handleClose}
-            component={Link}
+            component={_Link}
             to="/project/crypto-custodian"
           >
             Crypto custodian app
           </MenuItem>
           <MenuItem
             onClick={handleClose}
-            component={Link}
+            component={_Link}
             to="/project/whistleblower"
           >
             Whistleblowing suite
           </MenuItem>
           <MenuItem
             onClick={handleClose}
-            component={Link}
+            component={_Link}
             to="/project/master-thesis"
           >
             Master thesis
           </MenuItem>
           <MenuItem
             onClick={handleClose}
-            component={Link}
+            component={_Link}
             to="/project/babbelbord"
           >
             Babbelbord
           </MenuItem>
           <MenuItem
             onClick={handleClose}
-            component={Link}
+            component={_Link}
             to="/project/beathoven"
           >
             Beathoven
           </MenuItem>
-          <MenuItem onClick={handleClose} component={Link} to="/project/jammin">
+          <MenuItem
+            onClick={handleClose}
+            component={_Link}
+            to="/project/jammin"
+          >
             Jammin
           </MenuItem>
         </Menu>

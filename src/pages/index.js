@@ -5,6 +5,13 @@ import Image from "../components/image"
 import SEO from "../components/seo"
 import { Typography, Box, Grid, Chip } from "@material-ui/core"
 import { navigate } from "gatsby-link"
+import { makeStyles } from "@material-ui/core/styles"
+
+const useStyles = makeStyles(theme => ({
+  projectTitle: {
+    // color: theme.palette.primary.dark,
+  },
+}))
 
 const ProjectHome = ({
   title,
@@ -13,8 +20,12 @@ const ProjectHome = ({
   image = "gatsby-astronaut.png",
   imagePosition = "left",
 }) => {
+  const classes = useStyles()
   const topicTags = tags.map(tag => (
-    <Chip label={tag} color="primary" style={{ marginRight: "0.5rem" }} />
+    <Chip
+      label={tag}
+      style={{ marginRight: "0.5rem", backgroundColor: "#DD7777" }}
+    />
   ))
 
   return (
@@ -45,7 +56,9 @@ const ProjectHome = ({
               paddingLeft: "4rem",
             }}
           >
-            <Typography variant="h3">{title}</Typography>
+            <Typography variant="h3" className={classes.projectTitle}>
+              {title}
+            </Typography>
             <Typography variant="body1" style={{ marginBottom: "0.7rem" }}>
               {description}
             </Typography>
@@ -111,8 +124,8 @@ const IndexPage = () => (
       />
       <ProjectHome
         title="Jammin"
-        description="A gamified, personalized conversational system for people with mild moderate dementia and their caretakers/relatives."
-        tags={["User research", "Full-stack development"]}
+        description="Concept for an online platform which allows musicians to find like-minded people to start a band or occasionally jam with."
+        tags={["User research", "Frontend development"]}
         image="jammin_home.png"
       />
     </Grid>

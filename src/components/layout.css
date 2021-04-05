@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;500;700&family=Roboto:wght@400;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;500;700&family=Merriweather:wght@400;700&display=swap");
 
 html {
   -ms-text-size-adjust: 100%;
@@ -13,7 +13,6 @@ body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: hsla(0, 0%, 0%, 0.8);
   font-family: "Roboto", sans-serif;
   font-weight: normal;
   word-wrap: break-word;
@@ -74,27 +73,6 @@ strong {
 }
 dfn {
   font-style: italic;
-}
-h1,
-h2,
-h3,
-h4 {
-  font-family: "Merriweather", serif;
-}
-h1 {
-  margin-left: 0;
-  margin-right: 0;
-  margin-top: 0;
-  padding-bottom: 0;
-  padding-left: 0;
-  padding-right: 0;
-  padding-top: 0;
-  margin-bottom: 1.45rem;
-  color: inherit;
-  font-weight: bold;
-  text-rendering: optimizeLegibility;
-  font-size: 2.25rem;
-  line-height: 1.1;
 }
 mark {
   background-color: #ff0;

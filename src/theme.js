@@ -2,11 +2,6 @@ import { createMuiTheme } from "@material-ui/core/styles"
 
 const theme = createMuiTheme({
   overrides: {
-    MuiAppBar: {
-      colorTransparent: {
-        backgroundColor: "rgba(0,0,0,0.35)",
-      },
-    },
     MuiChip: {
       root: {
         borderRadius: "0.7rem",
@@ -18,6 +13,25 @@ const theme = createMuiTheme({
         letterSpacing: "1px",
         textTransform: "uppercase",
       },
+    },
+  },
+  palette: {
+    type: "dark",
+    common: {
+      white: "rgba(255,255,255,0.87)",
+    },
+    primary: {
+      light: "#DD7777",
+      main: "#DE4545",
+      dark: "#B0151C",
+    },
+    secondary: {
+      light: "#86C6F4",
+      main: "#1089E1",
+      dark: "#0061A8",
+    },
+    background: {
+      default: "#121212",
     },
   },
   typography: {
@@ -53,11 +67,10 @@ const theme = createMuiTheme({
       fontFamily: ["Fira Sans", "serif"].join(","),
     },
     body1: {
-      fontFamily: ["Merriweather", "sans-serif"].join(","),
+      fontFamily: ["Fira Sans", "sans-serif"].join(","),
       fontWeight: 400,
       fontSize: "1.075rem",
       lineHeight: "190%",
-      color: "#051424",
     },
     subtitle1: {
       fontFamily: ["Fira Sans", "serif"].join(","),

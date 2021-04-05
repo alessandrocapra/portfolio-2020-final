@@ -11,7 +11,7 @@ import { useStaticQuery, graphql } from "gatsby"
 
 import Header from "./header"
 import "./layout.css"
-import { Container, Grid, ThemeProvider } from "@material-ui/core"
+import { Container, CssBaseline, Grid, ThemeProvider } from "@material-ui/core"
 import theme from "../theme"
 
 const Layout = ({ children }) => {
@@ -27,6 +27,7 @@ const Layout = ({ children }) => {
 
   return (
     <ThemeProvider theme={theme}>
+      <CssBaseline />
       <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
       <Container>
         <Grid container>
