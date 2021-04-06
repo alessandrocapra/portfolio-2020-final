@@ -1,5 +1,4 @@
 import React from "react"
-
 import Layout from "../components/layout"
 import Image from "../components/image"
 import SEO from "../components/seo"
@@ -30,11 +29,11 @@ const ProjectHome = ({
 
   return (
     <Grid item xs={12} style={{ marginTop: "10rem", marginTop: "10rem" }}>
-      <Grid container spacing={4}>
+      <Grid container spacing={6} style={{ padding: "0 5rem" }}>
         <Box clone order={imagePosition === "left" ? 1 : 2}>
           <Grid
             item
-            sm={6}
+            sm={5}
             style={{
               display: "flex",
               flexDirection: "column",
@@ -48,7 +47,7 @@ const ProjectHome = ({
         <Box clone order={imagePosition === "left" ? 2 : 1}>
           <Grid
             item
-            xs={6}
+            xs={7}
             style={{
               display: "flex",
               flexDirection: "column",

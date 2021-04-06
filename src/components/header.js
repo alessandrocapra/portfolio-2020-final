@@ -27,7 +27,8 @@ const useStyles = makeStyles({
 const _Link = styled(({ isProjectPage, ...other }) => <Link {...other} />)({
   padding: "1rem 2rem",
   textDecoration: "none",
-  // fontSize: "1.25rem",
+  fontFamily: "'Fira Sans', sans-serif",
+  fontSize: "1.25rem",
   color: "#fff",
 })
 

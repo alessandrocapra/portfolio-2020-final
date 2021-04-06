@@ -29,22 +29,18 @@ const Layout = ({ children }) => {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
-      <Container>
-        <Grid container>
-          <Grid item xs={12}>
-            <main>{children}</main>
-            <footer
-              style={{
-                marginTop: `2rem`,
-              }}
-            >
-              © {new Date().getFullYear()}, Built with
-              {` `}
-              <a href="https://www.gatsbyjs.com">Gatsby</a>
-            </footer>
-          </Grid>
-        </Grid>
-      </Container>
+      <Grid container>
+        <main>{children}</main>
+        <footer
+          style={{
+            marginTop: `2rem`,
+          }}
+        >
+          © {new Date().getFullYear()}, Built with
+          {` `}
+          <a href="https://www.gatsbyjs.com">Gatsby</a>
+        </footer>
+      </Grid>
     </ThemeProvider>
   )
 }
