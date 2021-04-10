@@ -14,6 +14,16 @@ const theme = createMuiTheme({
         textTransform: "uppercase",
       },
     },
+    MuiButton: {
+      containedSizeLarge: {
+        padding: "1rem 0",
+      },
+      label: {
+        textTransform: "initial",
+        fontWeight: 700,
+        fontSize: "1.15rem",
+      },
+    },
   },
   palette: {
     type: "dark",

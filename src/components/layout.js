@@ -10,8 +10,9 @@ import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 
 import Header from "./header"
+import Footer from "./footer"
 import "./layout.css"
-import { Container, CssBaseline, Grid, ThemeProvider } from "@material-ui/core"
+import { CssBaseline, Grid, ThemeProvider } from "@material-ui/core"
 import theme from "../theme"
 
 const Layout = ({ children }) => {
@@ -31,16 +32,8 @@ const Layout = ({ children }) => {
       <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
       <Grid container>
         <main>{children}</main>
-        <footer
-          style={{
-            marginTop: `2rem`,
-          }}
-        >
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.com">Gatsby</a>
-        </footer>
       </Grid>
+      <Footer />
     </ThemeProvider>
   )
 }
