@@ -5,6 +5,7 @@ import SEO from "../components/seo"
 import { Typography, Box, Grid, Chip } from "@material-ui/core"
 import { navigate } from "gatsby-link"
 import { makeStyles } from "@material-ui/core/styles"
+import StyledBackgroundSection from "../components/backgroundImage"
 
 const useStyles = makeStyles(theme => ({
   underlined: {
@@ -12,17 +13,15 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-const ProjectHome = ({
-  title,
-  description,
-  tags,
-  image = "gatsby-astronaut.png",
-  imagePosition = "left",
-}) => {
+const ProjectHome = ({ title, description, tags, image }) => {
   const topicTags = tags.map(tag => (
     <Chip
       label={tag}
-      style={{ marginRight: "0.5rem", backgroundColor: "#DD7777" }}
+      style={{
+        marginRight: "0.75rem",
+        backgroundColor: "#DD7777",
+        borderRadius: "8px",
+      }}
     />
   ))
 
@@ -30,43 +29,43 @@ const ProjectHome = ({
     <Grid
       item
       xs={12}
-      style={{ marginTop: "10rem", marginTop: "10rem" }}
-      key={title}
+      style={{
+        marginTop: "5rem",
+      }}
+      onClick={() => navigate("/project/babbelbord")}
     >
-      <Grid container spacing={6} style={{ padding: "0 5rem" }}>
-        <Box clone order={imagePosition === "left" ? 1 : 2}>
-          <Grid
-            item
-            sm={5}
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-            }}
-            onClick={() => navigate("/project/babbelbord")}
-          >
+      <Box
+        style={{
+          display: "flex",
+          backgroundColor: "#1b1b1b",
+          padding: "4rem",
+          margin: "0 5rem",
+          borderRadius: "16px",
+        }}
+      >
+        <Box flexGrow={1} flexBasis="40%">
+          <Box>
             <Image imgName={image} />
-          </Grid>
+          </Box>
         </Box>
-        <Box clone order={imagePosition === "left" ? 2 : 1}>
-          <Grid
-            item
-            xs={7}
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-              paddingLeft: "4rem",
-            }}
-          >
-            <Typography variant="h3">{title}</Typography>
-            <Typography variant="body1" style={{ marginBottom: "0.7rem" }}>
-              {description}
-            </Typography>
-            <Box py={2}>{topicTags}</Box>
-          </Grid>
+        <Box
+          flexGrow={3}
+          flexBasis="70%"
+          display="flex"
+          flexDirection="column"
+          justifyContent="center"
+          alignItems="flex-start"
+          style={{ paddingLeft: "6rem" }}
+        >
+          <Typography variant="h3">{title}</Typography>
+          <Typography variant="body1" style={{ marginBottom: "0.7rem" }}>
+            {description}
+          </Typography>
+          <Box py={2}>{topicTags}</Box>
         </Box>
-      </Grid>
+      </Box>
+      {/* </Grid> */}
+      {/* </Grid> */}
     </Grid>
   )
 }
@@ -77,26 +76,41 @@ const IndexPage = () => {
   return (
     <Layout>
       <SEO title="Home" />
-      <Box
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          margin: "14rem auto 10rem",
-        }}
+      <StyledBackgroundSection
+        imgName="me.png"
+        style={{ backgroundPosition: "right" }}
       >
-        <Typography variant="h1">Piacere, Alessando</Typography>
-        <Typography
-          variant="subtitle1"
-          style={{ paddingTop: "2rem", maxWidth: "60rem" }}
+        <Box
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "flex-start",
+            justifyContent: "center",
+            height: "100vh",
+            width: "100vw",
+            padding: "10rem",
+          }}
         >
-          <span className={classes.underlined}>Frontend</span> developer with a
-          strong <span className={classes.underlined}>UX</span> background.
-          <br /> Ideate, research, design, develop, repeat.
-        </Typography>
-      </Box>
+          <Typography variant="h1">Piacere, Alessando</Typography>
+          <Typography
+            variant="subtitle1"
+            style={{ paddingTop: "2rem", maxWidth: "60rem" }}
+          >
+            <span className={classes.underlined}>Frontend</span> developer with
+            a strong <span className={classes.underlined}>UX</span> background.
+            <br /> Ideate, research, design, develop, repeat.
+          </Typography>
+        </Box>
+      </StyledBackgroundSection>
+
       <Grid container>
+        <Grid
+          item
+          xs={12}
+          style={{ margin: "10rem 5rem 0", textAlign: "center" }}
+        >
+          <Typography variant="h1">Projects</Typography>
+        </Grid>
         <ProjectHome
           title="Crypto custodian app"
           description="Mobile application (developed in React Native) that showcases the capabilites of the Quantoz Nexus API. The main features include buying and selling 6 different cryptocurrencies, while also being able to swap between them."
