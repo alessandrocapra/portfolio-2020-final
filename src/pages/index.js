@@ -2,7 +2,7 @@ import React from "react"
 import Layout from "../components/layout"
 import Image from "../components/image"
 import SEO from "../components/seo"
-import { Typography, Box, Grid, Chip } from "@material-ui/core"
+import { Typography, Box, Grid, Chip, Hidden } from "@material-ui/core"
 import { navigate } from "gatsby-link"
 import { makeStyles } from "@material-ui/core/styles"
 import StyledBackgroundSection from "../components/backgroundImage"
@@ -11,15 +11,45 @@ const useStyles = makeStyles(theme => ({
   underlined: {
     borderBottom: `4px solid #B0151C`,
   },
+  container: {
+    display: "flex",
+    flexDirection: "column",
+    backgroundColor: "#1b1b1b",
+    padding: "4rem",
+    margin: "0 5rem",
+    borderRadius: "16px",
+    transition: "all 0.5s",
+    "&:hover": {
+      backgroundColor: "#3a3a3a",
+    },
+    "@media (min-width:992px)": {
+      flexDirection: "row",
+    },
+  },
+  projectImage: {
+    "@media (max-width:992px)": {
+      marginBottom: "3rem",
+    },
+    "@media (max-width:425px)": {
+      display: "none",
+    },
+  },
+  projectContent: {
+    paddingLeft: "0",
+    "@media (min-width:992px)": {
+      paddingLeft: "6rem",
+    },
+  },
 }))
 
 const ProjectHome = ({ title, description, tags, image }) => {
+  const classes = useStyles()
   const topicTags = tags.map(tag => (
     <Chip
       label={tag}
       style={{
         marginRight: "0.75rem",
-        backgroundColor: "#DD7777",
+        backgroundColor: "#2f2f2f",
         borderRadius: "8px",
       }}
     />
@@ -31,23 +61,17 @@ const ProjectHome = ({ title, description, tags, image }) => {
       xs={12}
       style={{
         marginTop: "5rem",
+        cursor: "pointer",
       }}
       onClick={() => navigate("/project/babbelbord")}
     >
-      <Box
-        style={{
-          display: "flex",
-          backgroundColor: "#1b1b1b",
-          padding: "4rem",
-          margin: "0 5rem",
-          borderRadius: "16px",
-        }}
-      >
-        <Box flexGrow={1} flexBasis="40%">
+      <Box className={classes.container}>
+        <Box flexGrow={1} flexBasis="40%" className={classes.projectImage}>
           <Box>
             <Image imgName={image} />
           </Box>
         </Box>
+
         <Box
           flexGrow={3}
           flexBasis="70%"
@@ -55,7 +79,7 @@ const ProjectHome = ({ title, description, tags, image }) => {
           flexDirection="column"
           justifyContent="center"
           alignItems="flex-start"
-          style={{ paddingLeft: "6rem" }}
+          className={classes.projectContent}
         >
           <Typography variant="h3">{title}</Typography>
           <Typography variant="body1" style={{ marginBottom: "0.7rem" }}>
@@ -64,8 +88,6 @@ const ProjectHome = ({ title, description, tags, image }) => {
           <Box py={2}>{topicTags}</Box>
         </Box>
       </Box>
-      {/* </Grid> */}
-      {/* </Grid> */}
     </Grid>
   )
 }

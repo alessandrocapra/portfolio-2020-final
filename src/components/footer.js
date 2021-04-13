@@ -12,13 +12,15 @@ import SendRounded from "@material-ui/icons/SendRounded"
 
 const useStyles = makeStyles({
   root: {
-    marginTop: "14rem",
+    marginTop: "10rem",
     marginBottom: "4rem",
     padding: "0 5rem",
+    textAlign: "center",
   },
   contactForm: {
     display: "flex",
     flexDirection: "column",
+    marginTop: "3rem",
     "& > *": {
       marginBottom: "2rem",
     },
@@ -48,7 +50,7 @@ const Footer = () => {
     <Box component="footer" className={classes.root}>
       <Grid container justify="center">
         <Grid item xs={6}>
-          <Typography variant="h3">Contact me</Typography>
+          <Typography variant="h1">Contact me</Typography>
           <form
             name="contact"
             data-netlify="true"
