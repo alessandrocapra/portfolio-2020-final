@@ -9,7 +9,7 @@ import Toolbar from "@material-ui/core/Toolbar"
 import IconButton from "@material-ui/core/IconButton"
 import MenuIcon from "@material-ui/icons/Menu"
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   active: {
     fontWeight: "700",
   },
@@ -18,11 +18,14 @@ const useStyles = makeStyles({
   },
   toolBar: {
     justifyContent: "center",
+    [theme.breakpoints.down("sm")]: {
+      justifyContent: "flex-start",
+    },
   },
   projectMenuItem: {
     fontSize: "0.5rem",
   },
-})
+}))
 
 const _Link = styled(({ isProjectPage, ...other }) => <Link {...other} />)({
   padding: "1rem 2rem",
@@ -63,90 +66,92 @@ const Header = ({ isProjectPage }) => {
           </IconButton>
         </Hidden>
 
-        <_Link
-          to="/"
-          activeClassName={classes.active}
-          isProjectPage={isProjectPage}
-        >
-          Home
-        </_Link>
+        <Hidden xsDown>
+          <_Link
+            to="/"
+            activeClassName={classes.active}
+            isProjectPage={isProjectPage}
+          >
+            Home
+          </_Link>
 
-        <_Link
-          to="#"
-          onMouseOver={handleProjectsMenu}
-          activeClassName={classes.active}
-          isProjectPage={isProjectPage}
-        >
-          Projects
-        </_Link>
+          <_Link
+            to="#"
+            onMouseOver={handleProjectsMenu}
+            activeClassName={classes.active}
+            isProjectPage={isProjectPage}
+          >
+            Projects
+          </_Link>
 
-        <Menu
-          id="project-menu"
-          anchorEl={anchorEl}
-          getContentAnchorEl={null}
-          anchorOrigin={{
-            vertical: "bottom",
-            horizontal: "left",
-          }}
-          transformOrigin={{
-            vertical: "top",
-            horizontal: "left",
-          }}
-          keepMounted
-          open={open}
-          onClose={handleClose}
-        >
-          <MenuItem
-            onClick={handleClose}
-            component={_Link}
-            to="/project/crypto-custodian"
+          <Menu
+            id="project-menu"
+            anchorEl={anchorEl}
+            getContentAnchorEl={null}
+            anchorOrigin={{
+              vertical: "bottom",
+              horizontal: "left",
+            }}
+            transformOrigin={{
+              vertical: "top",
+              horizontal: "left",
+            }}
+            keepMounted
+            open={open}
+            onClose={handleClose}
           >
-            Crypto custodian app
-          </MenuItem>
-          <MenuItem
-            onClick={handleClose}
-            component={_Link}
-            to="/project/whistleblower"
-          >
-            Whistleblowing suite
-          </MenuItem>
-          <MenuItem
-            onClick={handleClose}
-            component={_Link}
-            to="/project/master-thesis"
-          >
-            Master thesis
-          </MenuItem>
-          <MenuItem
-            onClick={handleClose}
-            component={_Link}
-            to="/project/babbelbord"
-          >
-            Babbelbord
-          </MenuItem>
-          <MenuItem
-            onClick={handleClose}
-            component={_Link}
-            to="/project/beathoven"
-          >
-            Beathoven
-          </MenuItem>
-          <MenuItem
-            onClick={handleClose}
-            component={_Link}
-            to="/project/jammin"
-          >
-            Jammin
-          </MenuItem>
-        </Menu>
+            <MenuItem
+              onClick={handleClose}
+              component={_Link}
+              to="/project/crypto-custodian"
+            >
+              Crypto custodian app
+            </MenuItem>
+            <MenuItem
+              onClick={handleClose}
+              component={_Link}
+              to="/project/whistleblower"
+            >
+              Whistleblowing suite
+            </MenuItem>
+            <MenuItem
+              onClick={handleClose}
+              component={_Link}
+              to="/project/master-thesis"
+            >
+              Master thesis
+            </MenuItem>
+            <MenuItem
+              onClick={handleClose}
+              component={_Link}
+              to="/project/babbelbord"
+            >
+              Babbelbord
+            </MenuItem>
+            <MenuItem
+              onClick={handleClose}
+              component={_Link}
+              to="/project/beathoven"
+            >
+              Beathoven
+            </MenuItem>
+            <MenuItem
+              onClick={handleClose}
+              component={_Link}
+              to="/project/jammin"
+            >
+              Jammin
+            </MenuItem>
+          </Menu>
 
-        <_Link
-          to="/page-2"
-          activeClassName={classes.active}
-          isProjectPage={isProjectPage}
-        >
-          About
-        </_Link>
+          <_Link
+            to="/page-2"
+            activeClassName={classes.active}
+            isProjectPage={isProjectPage}
+          >
+            About
+          </_Link>
+        </Hidden>
       </Toolbar>
     </AppBar>
   )

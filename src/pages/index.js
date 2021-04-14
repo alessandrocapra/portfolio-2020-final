@@ -25,6 +25,10 @@ const useStyles = makeStyles(theme => ({
     "@media (min-width:992px)": {
       flexDirection: "row",
     },
+    [theme.breakpoints.down("sm")]: {
+      margin: "0 2rem",
+      padding: "2rem",
+    },
   },
   projectImage: {
     "@media (max-width:992px)": {
@@ -40,6 +44,37 @@ const useStyles = makeStyles(theme => ({
       paddingLeft: "6rem",
     },
   },
+  mainTitle: {
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "2.7rem",
+    },
+  },
+  mainDesc: {
+    paddingTop: "2rem",
+    maxWidth: "60rem",
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "1.5rem",
+    },
+  },
+  mastContainer: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "flex-start",
+    justifyContent: "center",
+    height: "100vh",
+    width: "100vw",
+    padding: "5rem",
+    [theme.breakpoints.down("xs")]: {
+      padding: theme.spacing(4),
+    },
+  },
+  projectContainer: {
+    marginTop: "5rem",
+    cursor: "pointer",
+    [theme.breakpoints.down("sm")]: {
+      marginTop: theme.spacing(5),
+    },
+  },
 }))
 
 const ProjectHome = ({ title, description, tags, image }) => {
@@ -49,6 +84,7 @@ const ProjectHome = ({ title, description, tags, image }) => {
       label={tag}
       style={{
         marginRight: "0.75rem",
+        marginBottom: "0.75rem",
         backgroundColor: "#2f2f2f",
         borderRadius: "8px",
       }}
@@ -59,10 +95,7 @@ const ProjectHome = ({ title, description, tags, image }) => {
     <Grid
       item
       xs={12}
-      style={{
-        marginTop: "5rem",
-        cursor: "pointer",
-      }}
+      className={classes.projectContainer}
       onClick={() => navigate("/project/babbelbord")}
     >
       <Box className={classes.container}>
@@ -102,22 +135,11 @@ const IndexPage = () => {
         imgName="me.png"
         style={{ backgroundPosition: "right" }}
       >
-        <Box
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "flex-start",
-            justifyContent: "center",
-            height: "100vh",
-            width: "100vw",
-            padding: "10rem",
-          }}
-        >
-          <Typography variant="h1">Piacere, Alessando</Typography>
-          <Typography
-            variant="subtitle1"
-            style={{ paddingTop: "2rem", maxWidth: "60rem" }}
-          >
+        <Box className={classes.mastContainer}>
+          <Typography variant="h1" className={classes.mainTitle}>
+            Piacere, Alessando
+          </Typography>
+          <Typography variant="subtitle1" className={classes.mainDesc}>
             <span className={classes.underlined}>Frontend</span> developer with
             a strong <span className={classes.underlined}>UX</span> background.
             <br /> Ideate, research, design, develop, repeat.
