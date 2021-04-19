@@ -104,7 +104,52 @@ const BabbelbordPage = () => {
         </Box>
         <Image
           imgName="babbelbord_brainstorming.png"
+          style={{ overflow: "unset" }}
+          imgStyle={{ left: "-20vw" }}
         />
+        <Box py={14}>
+          <Grid
+            container
+            spacing={6}
+            style={{
+              display: "flex",
+              alignItems: "center",
+            }}
+          >
+            <Grid item xs={6}>
+              <Typography variant="body1">
+                <strong>Iterative prototyping</strong>
+                <ul>
+                  <li>
+                    vision (structured brainstorming sessions to produce a lot
+                    of ideas and then combine them), prototype, evaluation.
+                  </li>
+                  <li>
+                    First iteration: memory card game only, with wizard of OZ
+                    testing
+                  </li>
+                  <li>
+                    Second iteration: simple paper prototype, similar to final
+                    solution
+                  </li>
+                  <li>
+                    Third iteration: Added cards to collect as points, plus
+                    special squares with different meanings. A/B testing to see
+                    which interface was clearer to use for the caregiver -
+                    Fourth iteration: final version of prototype
+                  </li>
+                </ul>
+              </Typography>
+            </Grid>
+            <Grid item xs={6}>
+              <Image
+                imgName="babbelbord_prototyping.png"
+                style={{ overflow: "unset" }}
+                imgStyle={{ left: "15vw" }}
+              />
+            </Grid>
+          </Grid>
+        </Box>
       </Container>
     </Layout>
   )

@@ -36,11 +36,7 @@ const Image = ({ imgName, ...other }) => (
       if (!image) {
         return null
       }
-      return (
-        <Img
-          fluid={image.node.fluid}
-        />
-      )
+      return <Img fluid={image.node.fluid} {...other} />
     }}
   />
 )
