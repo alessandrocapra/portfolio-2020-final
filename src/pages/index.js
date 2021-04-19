@@ -88,6 +88,7 @@ const ProjectHome = ({ title, description, tags, image }) => {
         backgroundColor: "#2f2f2f",
         borderRadius: "8px",
       }}
+      key={tag}
     />
   ))
 

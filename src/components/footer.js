@@ -10,12 +10,16 @@ import {
 } from "@material-ui/core"
 import SendRounded from "@material-ui/icons/SendRounded"
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   root: {
     marginTop: "10rem",
     marginBottom: "4rem",
     padding: "0 5rem",
     textAlign: "center",
+    [theme.breakpoints.down("sm")]: {
+      margin: "0 2rem",
+      padding: "2rem",
+    },
   },
   contactForm: {
     display: "flex",
@@ -25,7 +29,7 @@ const useStyles = makeStyles({
       marginBottom: "2rem",
     },
   },
-})
+}))
 
 const Footer = () => {
   const classes = useStyles()
@@ -49,7 +53,7 @@ const Footer = () => {
   return (
     <Box component="footer" className={classes.root}>
       <Grid container justify="center">
-        <Grid item xs={6}>
+        <Grid item xs={12} sm={8} md={6}>
           <Typography variant="h1">Contact me</Typography>
           <form
             name="contact"
