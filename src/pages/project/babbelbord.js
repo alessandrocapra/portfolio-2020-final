@@ -150,6 +150,47 @@ const BabbelbordPage = () => {
             </Grid>
           </Grid>
         </Box>
+        <Box py={14}>
+          <Image imgName="babbelbord_iterations.png" />
+        </Box>
+        <Box py={14} className={classes.centeredSection}>
+          <Typography variant="h2">Testing</Typography>
+          <Typography variant="body1">
+            <ul>
+              <li>
+                Observations: number of frowns, smiles, number of questions
+                answered by patients
+              </li>
+              <li>
+                4 semi-structured interviews: a relative of patients with
+                dementia, two professional caregivers and an expert working in
+                care centres who organizes activities for them. Different
+                abstract categories emerged:
+              </li>
+              <ul>
+                <li>Living environment (context)</li>
+                <li>Interaction between other patients/caregivers/relatives</li>
+                <li>Characteristics of disease (medical)</li>
+                <li>Emotional perception (patient)</li>
+                <li>Behaviour (patient)</li>
+                <li>Interest (patient)</li>
+                <li>Relation/job (caregiver)</li>
+                <li>Relatives’ emotional connection to the patient</li>
+                <li>Feedback on the prototype</li>
+                <li>Purpose of the game</li>
+                <li>Communication techniques (caregivers/expert)</li>
+                <li>Interaction between technology and patients</li>
+              </ul>
+            </ul>
+          </Typography>
+        </Box>
+        <Box py={14}>
+          <Image
+            imgName="babbelbord_testing.png"
+            style={{ overflow: "unset", left: "-30vw" }}
+            imgStyle={{ maxWidth: "150%", height: "150%", width: "150%" }}
+          />
+        </Box>
       </Container>
     </Layout>
   )

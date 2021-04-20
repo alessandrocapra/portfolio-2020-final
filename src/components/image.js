@@ -36,7 +36,13 @@ const Image = ({ imgName, ...other }) => (
       if (!image) {
         return null
       }
-      return <Img fluid={image.node.fluid} {...other} />
+      return (
+        <Img
+          fluid={image.node.fluid}
+          imgStyle={{ borderRadius: "2rem" }}
+          {...other}
+        />
+      )
     }}
   />
 )
