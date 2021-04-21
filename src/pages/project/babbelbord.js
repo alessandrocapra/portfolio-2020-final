@@ -23,7 +23,7 @@ const BabbelbordPage = () => {
       <ProjectHeader
         headerImage={"babbelbord-header.png"}
         title="Babbelbord"
-        areas="User research - prototyping - development"
+        areas={["User research", "Prototyping", "Development"]}
       />
       <Container>
         <ProjectSummary>
@@ -46,7 +46,7 @@ const BabbelbordPage = () => {
         <Box py={14}>
           <Typography variant="h2">Research</Typography>
           <Grid container spacing={6}>
-            <Grid item xs={6}>
+            <Grid item xs={12} sm={6}>
               <Typography variant="body1">
                 <strong>Stakeholders</strong>
                 <ul>
@@ -65,7 +65,7 @@ const BabbelbordPage = () => {
                 further, by also embedding gamification elements
               </Typography>
             </Grid>
-            <Grid item xs={6}>
+            <Grid item xs={12} sm={6}>
               <Typography variant="body1">
                 <strong>Methods</strong>
                 <br />
@@ -116,27 +116,23 @@ const BabbelbordPage = () => {
               alignItems: "center",
             }}
           >
-            <Grid item xs={6}>
+            <Grid item xs={12} sm={6}>
               <Typography variant="body1">
-                <strong>Iterative prototyping</strong>
+                <strong>Prototyping</strong>
                 <ul>
+                  <li>evaluation of card games with similar purpose</li>
                   <li>
-                    vision (structured brainstorming sessions to produce a lot
-                    of ideas and then combine them), prototype, evaluation.
+                    low-fidelity prototype: the goal was to quickly develop a
+                    rough version of the final system to cheaply test our
+                    assumptions and pivot if the testing failed. Used a first
+                    set of low-fi cards to play with the elderly and see the
+                    reactions, wizard of oz technique to mimic the system
+                    behavior. Following phases were with high-fid versions
                   </li>
                   <li>
-                    First iteration: memory card game only, with wizard of OZ
-                    testing
-                  </li>
-                  <li>
-                    Second iteration: simple paper prototype, similar to final
-                    solution
-                  </li>
-                  <li>
-                    Third iteration: Added cards to collect as points, plus
-                    special squares with different meanings. A/B testing to see
-                    which interface was clearer to use for the caregiver -
-                    Fourth iteration: final version of prototype
+                    evaluation: with low-fi prototype, test with healthy elderly
+                    due to constraints in testing with people with dementia.
+                    Follow a task list, think aloud
                   </li>
                 </ul>
               </Typography>
@@ -184,12 +180,42 @@ const BabbelbordPage = () => {
             </ul>
           </Typography>
         </Box>
+        <Image
+          imgName="babbelbord_testing.png"
+          style={{ width: "140%", left: "-12%" }}
+        />
         <Box py={14}>
-          <Image
-            imgName="babbelbord_testing.png"
-            style={{ overflow: "unset", left: "-30vw" }}
-            imgStyle={{ maxWidth: "150%", height: "150%", width: "150%" }}
-          />
+          <Image imgName="babbelbord_final.png" />
+        </Box>
+        <Box py={14} className={classes.centeredSection}>
+          <Typography variant="h2">The result</Typography>
+          <Typography variant="body1">
+            <ul>
+              <li>
+                given limited cognitive abilities, removing many gamified
+                elements to simplify. Revising winning mechanism from
+                collectiong cards to reach points could be easier, according to
+                the person organising the activites at the revalidation centre.
+              </li>
+              <li>
+                some remarks on the dimension and robustness of the materials.
+                For instance, we were using a normal die for testing purposes,
+                but different interviewees argued that it was too small to be
+                handled properly by patients. The same goes for game elements,
+                such as the board itself and the squares that compose it: they
+                should be bigger in order to be easily understood and handled by
+                the players.
+              </li>
+              <li>
+                formulation of the questions that should trigger memories.
+                Indeed, some of them are quite complex and long, making it
+                difficult for the patients to process properly. Therefore, we
+                will have to rephrase them in order to be shorter, avoiding
+                using general terms such as “childhood” but being more specific
+                by providing a range age.
+              </li>
+            </ul>
+          </Typography>
         </Box>
       </Container>
     </Layout>

@@ -30,7 +30,7 @@ const Layout = ({ children }) => {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
-      <Grid container component="main">
+      <Grid container component="main" style={{ overflow: "hidden" }}>
         {children}
       </Grid>
       <Footer />

@@ -49,16 +49,22 @@ const theme = createMuiTheme({
     h1: {
       fontFamily: ["Fira Sans", "serif"].join(","),
       fontWeight: 900,
-      fontSize: "4.5rem",
+      fontSize: "2.75rem",
       lineHeight: "138.1%",
+      "@media (min-width:600px)": {
+        fontSize: "4.5rem",
+      },
     },
     h2: {
       fontFamily: ["Fira Sans", "sans-serif"].join(","),
       fontWeight: 900,
-      fontSize: "1.75rem",
+      fontSize: "1.45rem",
       textTransform: "uppercase",
       lineHeight: "275%",
       letterSpacing: "0.17em",
+      "@media (min-width:600px)": {
+        fontSize: "1.75rem",
+      },
     },
     h3: {
       fontFamily: ["Fira Sans", "serif"].join(","),
@@ -85,17 +91,23 @@ const theme = createMuiTheme({
     subtitle1: {
       fontFamily: ["Fira Sans", "serif"].join(","),
       fontWeight: 300,
-      fontSize: "2.1875rem",
+      fontSize: "1.5rem",
       lineHeight: "174.7%",
       letterSpacing: "0.01em",
+      "@media (min-width:600px)": {
+        fontSize: "2.1875rem",
+      },
     },
     subtitle2: {
       fontFamily: ["Merriweather", "sans-serif"].join(","),
       fontWeight: 700,
       textTransform: "uppercase",
-      fontSize: "1.1rem",
+      fontSize: "0.8rem",
       lineHeight: "138.1%",
       letterSpacing: "0.2em",
+      "@media (min-width:600px)": {
+        fontSize: "1.1rem",
+      },
     },
   },
 })

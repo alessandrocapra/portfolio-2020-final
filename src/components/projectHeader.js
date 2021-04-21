@@ -1,6 +1,6 @@
-import { Box, Typography } from "@material-ui/core"
+import { Box, Typography, Chip } from "@material-ui/core"
 import React from "react"
-import { styled } from "@material-ui/core/styles"
+import { styled, makeStyles } from "@material-ui/core/styles"
 import StyledBackgroundSection from "./backgroundImage"
 
 const HeaderBox = styled(Box)({
@@ -11,7 +11,33 @@ const HeaderBox = styled(Box)({
   justifyContent: "center",
 })
 
+const useStyles = makeStyles({
+  areasBox: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    "@media (min-width:600px)": {
+      flexDirection: "row",
+    },
+  },
+})
+
 export default function ProjectHeader(props) {
+  const classes = useStyles()
+  const areaTags = props.areas.map(area => (
+    <Chip
+      label={area}
+      style={{
+        marginRight: "0.75rem",
+        marginBottom: "0.75rem",
+        backgroundColor: "rgba(46,46,46,0.6)",
+        borderRadius: "8px",
+      }}
+      key={area}
+    />
+  ))
+
   return (
     <StyledBackgroundSection imgName={props.headerImage}>
       <HeaderBox color="white">
@@ -23,8 +49,8 @@ export default function ProjectHeader(props) {
         >
           <Typography variant="h1">{props.title}</Typography>
         </Box>
-        <Box pb={9} display="flex" justifyContent="center" alignItems="center">
-          <Typography variant="subtitle2">{props.areas}</Typography>
+        <Box pb={9} className={classes.areasBox}>
+          {areaTags}
         </Box>
       </HeaderBox>
     </StyledBackgroundSection>
