@@ -47,7 +47,7 @@ const BabbelbordPage = () => {
           <Typography variant="h2">Research</Typography>
           <Grid container spacing={6}>
             <Grid item xs={12} sm={6}>
-              <Typography variant="body1">
+              <Typography variant="body1" component="div">
                 <strong>Stakeholders</strong>
                 <ul>
                   <li>Relatives from Dementia patients</li>
@@ -75,7 +75,7 @@ const BabbelbordPage = () => {
               </Typography>
               <br />
               <br />
-              <Typography variant="body1">
+              <Typography variant="body1" component="div">
                 <strong>Iterative prototyping</strong>
                 <ul>
                   <li>
@@ -117,7 +117,7 @@ const BabbelbordPage = () => {
             }}
           >
             <Grid item xs={12} sm={6}>
-              <Typography variant="body1">
+              <Typography variant="body1" component="div">
                 <strong>Prototyping</strong>
                 <ul>
                   <li>evaluation of card games with similar purpose</li>
@@ -137,11 +137,14 @@ const BabbelbordPage = () => {
                 </ul>
               </Typography>
             </Grid>
-            <Grid item xs={6}>
+            <Grid item xs={12} sm={6}>
               <Image
                 imgName="babbelbord_prototyping.png"
                 style={{ overflow: "unset" }}
-                imgStyle={{ left: "15vw" }}
+                imgStyle={{
+                  left: "0",
+                  "@media (minWidth:425px)": { left: "15vw" },
+                }}
               />
             </Grid>
           </Grid>
@@ -151,7 +154,7 @@ const BabbelbordPage = () => {
         </Box>
         <Box py={14} className={classes.centeredSection}>
           <Typography variant="h2">Testing</Typography>
-          <Typography variant="body1">
+          <Typography variant="body1" component="div">
             <ul>
               <li>
                 Observations: number of frowns, smiles, number of questions
@@ -189,7 +192,7 @@ const BabbelbordPage = () => {
         </Box>
         <Box py={14} className={classes.centeredSection}>
           <Typography variant="h2">The result</Typography>
-          <Typography variant="body1">
+          <Typography variant="body1" component="div">
             <ul>
               <li>
                 given limited cognitive abilities, removing many gamified

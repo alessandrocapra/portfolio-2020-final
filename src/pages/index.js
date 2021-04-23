@@ -138,7 +138,7 @@ const IndexPage = () => {
       >
         <Box className={classes.mastContainer}>
           <Typography variant="h1" className={classes.mainTitle}>
-            Piacere, Alessando
+            Piacere, Alessandro
           </Typography>
           <Typography variant="subtitle1" className={classes.mainDesc}>
             <span className={classes.underlined}>Frontend</span> developer with
