@@ -77,7 +77,7 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-const ProjectHome = ({ title, description, tags, image }) => {
+const ProjectHome = ({ title, description, tags, image, projectLink }) => {
   const classes = useStyles()
   const topicTags = tags.map(tag => (
     <Chip
@@ -97,7 +97,13 @@ const ProjectHome = ({ title, description, tags, image }) => {
       item
       xs={12}
       className={classes.projectContainer}
-      onClick={() => navigate("/project/babbelbord")}
+      onClick={() =>
+        navigate(
+          typeof projectLink !== "undefined"
+            ? projectLink
+            : "project/babbelbord"
+        )
+      }
     >
       <Box className={classes.container}>
         <Box flexGrow={1} flexBasis="40%" className={classes.projectImage}>
@@ -160,6 +166,7 @@ const IndexPage = () => {
           title="Crypto custodian app"
           description="Mobile application (developed in React Native) that showcases the capabilites of the Quantoz Nexus API. The main features include buying and selling 6 different cryptocurrencies, while also being able to swap between them."
           tags={["UX Design", "UI Design", "React Native"]}
+          projectLink="/project/custodian"
           image="custodian_home.png"
         />
         <ProjectHome
@@ -178,6 +185,7 @@ const IndexPage = () => {
           title="Babbelbord"
           description="A gamified, personalized conversational system for people with mild moderate dementia and their caretakers/relatives."
           tags={["User research", "Full-stack development"]}
+          projectLink="/project/babbelbord"
           image="babbelbord_home.png"
         />
         <ProjectHome
