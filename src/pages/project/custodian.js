@@ -27,8 +27,10 @@ const BabbelbordPage = () => {
       />
       <Container>
         <ProjectSummary>
-          A gamified, personalized conversational system for people with mild
-          moderate dementia and their caretakers/relatives.
+          A mobile application (developed in React Native) that showcases the
+          capabilites of the Quantoz Nexus API. The main features include buying
+          and selling 6 different cryptocurrencies, as well as swapping between
+          them.
         </ProjectSummary>
         <Box py={14} className={classes.centeredSection}>
           <Typography variant="h2">The concept</Typography>
