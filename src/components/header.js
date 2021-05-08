@@ -3,14 +3,15 @@ import PropTypes from "prop-types"
 import React from "react"
 import {
   Hidden,
-  Menu,
-  MenuItem,
+  Box,
   Drawer,
   List,
   ListItem,
   ListItemText,
   ListItemIcon,
   Collapse,
+  Grid,
+  Typography,
 } from "@material-ui/core"
 import { styled, makeStyles } from "@material-ui/core/styles"
 import AppBar from "@material-ui/core/AppBar"
@@ -22,6 +23,8 @@ import EmojiObjectsRoundedIcon from "@material-ui/icons/EmojiObjectsRounded"
 import HomeRoundedIcon from "@material-ui/icons/HomeRounded"
 import ExpandLessRounded from "@material-ui/icons/ExpandLessRounded"
 import ExpandMoreRounded from "@material-ui/icons/ExpandMoreRounded"
+import Image from "./image"
+import ProjectMenuWidget from "./projectMenuItem"
 
 const useStyles = makeStyles(theme => ({
   active: {
@@ -42,14 +45,32 @@ const useStyles = makeStyles(theme => ({
   drawerRoot: {
     width: 275,
   },
+  projectMenu: {
+    position: "fixed",
+    top: "5rem",
+    left: "50%",
+    transform: "translateX(-50%)",
+    backgroundColor: "rgba(18,18,18,0.9)",
+    width: "80vw",
+    height: "70vh",
+    zIndex: 1,
+    display: "flex",
+    overflow: "hidden",
+    borderRadius: "1rem",
+  },
 }))
 
-const _Link = styled(({ isProjectPage, ...other }) => <Link {...other} />)({
+export const _Link = styled(({ isProjectPage, ...other }) => (
+  <Link {...other} />
+))({
   padding: "1rem 2rem",
   textDecoration: "none",
   fontFamily: "'Fira Sans', sans-serif",
   fontSize: "1.25rem",
   color: "#fff",
+  "&:hover": {
+    backgroundColor: "#121212",
+  },
 })
 
 const Header = ({ isProjectPage }) => {
@@ -58,6 +79,7 @@ const Header = ({ isProjectPage }) => {
   const open = Boolean(anchorEl)
   const [drawerOpen, setDrawerOpen] = React.useState(false)
   const [projectsListItemOpen, setProjectsListItemOpen] = React.useState(false)
+  const [projectMenuOpen, setProjectMenuOpen] = React.useState(true)
 
   const handleProjectsMenu = event => {
     setAnchorEl(event.currentTarget)
@@ -79,175 +101,177 @@ const Header = ({ isProjectPage }) => {
   }
 
   return (
-    <AppBar
-      position="sticky"
-      color="inherit"
-      style={{ backgroundColor: "#B0151C" }}
-    >
-      <Toolbar className={classes.toolBar}>
-        <Hidden smUp>
-          <IconButton
-            edge="start"
-            className={classes.menuButton}
-            color="inherit"
-            aria-label="menu"
-            onClick={() => setDrawerOpen(true)}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Drawer anchor="left" open={drawerOpen} onClose={toggleDrawer(false)}>
-            <div className={classes.drawerRoot}>
-              <List>
-                <ListItem
-                  button
-                  component={Link}
-                  to="/"
-                  onClick={toggleDrawer(false)}
-                >
-                  <ListItemIcon>
-                    <HomeRoundedIcon />
-                  </ListItemIcon>
-                  <ListItemText primary="Home" />
-                </ListItem>
-                <ListItem button onClick={() => setProjectsListItemOpen(true)}>
-                  <ListItemIcon>
-                    <EmojiObjectsRoundedIcon />
-                  </ListItemIcon>
-                  <ListItemText primary="Projects" />
-                  {projectsListItemOpen ? (
-                    <ExpandLessRounded />
-                  ) : (
-                    <ExpandMoreRounded />
-                  )}
-                </ListItem>
-                <Collapse
-                  in={projectsListItemOpen}
-                  timeout="auto"
-                  unmountOnExit
-                >
-                  <List component="div" disablePadding>
-                    <ListItem button>
-                      <ListItemText inset primary="Crypto custodian app" />
-                    </ListItem>
-                    <ListItem button>
-                      <ListItemText inset primary="Whistleblower platform" />
-                    </ListItem>
-                    <ListItem button>
-                      <ListItemText
-                        inset
-                        primary="Respiratory exercises for children with DMD"
-                      />
-                    </ListItem>
-                    <ListItem button component={Link} to="/project/babbelbord">
-                      <ListItemText inset primary="Babbelbord" />
-                    </ListItem>
-                    <ListItem button>
-                      <ListItemText inset primary="Beathoven" />
-                    </ListItem>
-                    <ListItem button>
-                      <ListItemText inset primary="Jammin" />
-                    </ListItem>
-                  </List>
-                </Collapse>
-                <ListItem button>
-                  <ListItemIcon>
-                    <InboxRoundedIcon />
-                  </ListItemIcon>
-                  <ListItemText primary="About" />
-                </ListItem>
-              </List>
-            </div>
-          </Drawer>
-        </Hidden>
+    <>
+      <AppBar
+        position="sticky"
+        color="inherit"
+        style={{ backgroundColor: "#B0151C" }}
+      >
+        <Toolbar className={classes.toolBar}>
+          <Hidden smUp>
+            <IconButton
+              edge="start"
+              className={classes.menuButton}
+              color="inherit"
+              aria-label="menu"
+              onClick={() => setDrawerOpen(true)}
+            >
+              <MenuIcon />
+            </IconButton>
+            <Drawer
+              anchor="left"
+              open={drawerOpen}
+              onClose={toggleDrawer(false)}
+            >
+              <div className={classes.drawerRoot}>
+                <List>
+                  <ListItem
+                    button
+                    component={Link}
+                    to="/"
+                    onClick={toggleDrawer(false)}
+                  >
+                    <ListItemIcon>
+                      <HomeRoundedIcon />
+                    </ListItemIcon>
+                    <ListItemText primary="Home" />
+                  </ListItem>
+                  <ListItem
+                    button
+                    onClick={() => setProjectsListItemOpen(true)}
+                  >
+                    <ListItemIcon>
+                      <EmojiObjectsRoundedIcon />
+                    </ListItemIcon>
+                    <ListItemText primary="Projects" />
+                    {projectsListItemOpen ? (
+                      <ExpandLessRounded />
+                    ) : (
+                      <ExpandMoreRounded />
+                    )}
+                  </ListItem>
+                  <Collapse
+                    in={projectsListItemOpen}
+                    timeout="auto"
+                    unmountOnExit
+                  >
+                    <List component="div" disablePadding>
+                      <ListItem button>
+                        <ListItemText inset primary="Crypto custodian app" />
+                      </ListItem>
+                      <ListItem button>
+                        <ListItemText inset primary="Whistleblower platform" />
+                      </ListItem>
+                      <ListItem button>
+                        <ListItemText
+                          inset
+                          primary="Respiratory exercises for children with DMD"
+                        />
+                      </ListItem>
+                      <ListItem
+                        button
+                        component={Link}
+                        to="/project/babbelbord"
+                      >
+                        <ListItemText inset primary="Babbelbord" />
+                      </ListItem>
+                      <ListItem button>
+                        <ListItemText inset primary="Beathoven" />
+                      </ListItem>
+                      <ListItem button>
+                        <ListItemText inset primary="Jammin" />
+                      </ListItem>
+                    </List>
+                  </Collapse>
+                  <ListItem button>
+                    <ListItemIcon>
+                      <InboxRoundedIcon />
+                    </ListItemIcon>
+                    <ListItemText primary="About" />
+                  </ListItem>
+                </List>
+              </div>
+            </Drawer>
+          </Hidden>
 
-        <Hidden xsDown>
-          <_Link
-            to="/"
-            activeClassName={classes.active}
-            isProjectPage={isProjectPage}
-          >
-            Home
-          </_Link>
+          <Hidden xsDown>
+            <_Link
+              to="/"
+              activeClassName={classes.active}
+              isProjectPage={isProjectPage}
+            >
+              Home
+            </_Link>
 
-          <_Link
-            to="#"
-            onMouseOver={handleProjectsMenu}
-            activeClassName={classes.active}
-            isProjectPage={isProjectPage}
-          >
-            Projects
-          </_Link>
+            <_Link
+              to="#"
+              onMouseEnter={() => setProjectMenuOpen(true)}
+              activeClassName={classes.active}
+              isProjectPage={isProjectPage}
+            >
+              Projects
+            </_Link>
 
-          <Menu
-            id="project-menu"
-            anchorEl={anchorEl}
-            getContentAnchorEl={null}
-            anchorOrigin={{
-              vertical: "bottom",
-              horizontal: "left",
-            }}
-            transformOrigin={{
-              vertical: "top",
-              horizontal: "left",
-            }}
-            keepMounted
-            open={open}
-            onClose={handleClose}
-          >
-            <MenuItem
-              onClick={handleClose}
-              component={_Link}
-              to="/project/custodian"
+            <_Link
+              to="/page-2"
+              activeClassName={classes.active}
+              isProjectPage={isProjectPage}
             >
-              Crypto custodian app
-            </MenuItem>
-            <MenuItem
-              onClick={handleClose}
-              component={_Link}
-              to="/project/whistleblower"
+              About
+            </_Link>
+          </Hidden>
+        </Toolbar>
+      </AppBar>
+      {projectMenuOpen && (
+        <Box
+          style={{ position: "relative" }}
+          onMouseLeave={() => setProjectMenuOpen(false)}
+        >
+          <Box className={classes.projectMenu}>
+            <Grid
+              container
+              style={{
+                alignItems: "center",
+                justifyContent: "center",
+                height: "100%",
+              }}
             >
-              Whistleblowing suite
-            </MenuItem>
-            <MenuItem
-              onClick={handleClose}
-              component={_Link}
-              to="/project/master-thesis"
-            >
-              Master thesis
-            </MenuItem>
-            <MenuItem
-              onClick={handleClose}
-              component={_Link}
-              to="/project/babbelbord"
-            >
-              Babbelbord
-            </MenuItem>
-            <MenuItem
-              onClick={handleClose}
-              component={_Link}
-              to="/project/beathoven"
-            >
-              Beathoven
-            </MenuItem>
-            <MenuItem
-              onClick={handleClose}
-              component={_Link}
-              to="/project/jammin"
-            >
-              Jammin
-            </MenuItem>
-          </Menu>
-
-          <_Link
-            to="/page-2"
-            activeClassName={classes.active}
-            isProjectPage={isProjectPage}
-          >
-            About
-          </_Link>
-        </Hidden>
-      </Toolbar>
-    </AppBar>
+              <ProjectMenuWidget
+                title="Crypto custodian app"
+                image="custodian_home.png"
+                desc="Designed and coded in React Native."
+                link="/project/custodian"
+              />
+              <ProjectMenuWidget
+                title="Whistleblower platform"
+                image="custodian_home.png"
+                desc="SaaS application to enable whistleblowers within organizations."
+              />
+              <ProjectMenuWidget
+                title="Gamified respiratory exercises"
+                image="custodian_home.png"
+                desc="Master's thesis project to help children with Duchenne Muscular Dystrophy to exercise."
+              />
+              <ProjectMenuWidget
+                title="Babbelbord"
+                image="custodian_home.png"
+                desc="Tech-enhanced board game to help people with dementia reconnect with their relatives."
+              />
+              <ProjectMenuWidget
+                title="Beathoven"
+                image="custodian_home.png"
+                desc="Exploring alternative interfaces allowing deaf people to experience music."
+              />
+              <ProjectMenuWidget
+                title="Jammin"
+                image="custodian_home.png"
+                desc="Portal to find like-minded musicians to jam together."
+              />
+            </Grid>
+          </Box>
+        </Box>
+      )}
+    </>
   )
 }
 
