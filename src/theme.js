@@ -60,11 +60,12 @@ const theme = createMuiTheme({
       fontWeight: 900,
       fontSize: "1.45rem",
       textTransform: "uppercase",
-      lineHeight: "275%",
-      letterSpacing: "0.17em",
+      lineHeight: "145%",
+      letterSpacing: "4px",
       "@media (min-width:600px)": {
         fontSize: "1.75rem",
       },
+      marginBottom: "1.5rem",
     },
     h3: {
       fontFamily: ["Fira Sans", "serif"].join(","),
@@ -85,7 +86,7 @@ const theme = createMuiTheme({
     body1: {
       fontFamily: ["Fira Sans", "sans-serif"].join(","),
       fontWeight: 400,
-      fontSize: "1.075rem",
+      fontSize: "1.2rem",
       lineHeight: "190%",
     },
     subtitle1: {

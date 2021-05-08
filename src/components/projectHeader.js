@@ -9,6 +9,7 @@ const HeaderBox = styled(Box)({
   display: "flex",
   flexDirection: "column",
   justifyContent: "center",
+  textAlign: "center",
 })
 
 const useStyles = makeStyles({
@@ -31,7 +32,7 @@ export default function ProjectHeader(props) {
       style={{
         marginRight: "0.75rem",
         marginBottom: "0.75rem",
-        backgroundColor: "rgba(46,46,46,0.6)",
+        backgroundColor: "rgba(46,46,46,0.8)",
         borderRadius: "8px",
       }}
       key={area}

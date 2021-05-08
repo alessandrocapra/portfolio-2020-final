@@ -197,7 +197,7 @@ const Header = ({ isProjectPage }) => {
             <MenuItem
               onClick={handleClose}
               component={_Link}
-              to="/project/crypto-custodian"
+              to="/project/custodian"
             >
               Crypto custodian app
             </MenuItem>
