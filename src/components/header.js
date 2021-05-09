@@ -53,7 +53,6 @@ const useStyles = makeStyles(theme => ({
     transform: "translateX(-50%)",
     backgroundColor: "rgba(18,18,18,1)",
     width: "85vw",
-    height: "88vh",
     zIndex: 1,
     display: "flex",
     overflow: "hidden",
@@ -227,8 +226,7 @@ const Header = ({ isProjectPage }) => {
               container
               style={{
                 alignItems: "center",
-                justifyContent: "center",
-                height: "100%",
+                justifyContent: "flex-start",
               }}
             >
               <ProjectMenuWidget

@@ -34,6 +34,7 @@ const useStyles = makeStyles(theme => ({
     transition: "0.2s",
     "&:hover": {
       borderBottom: "8px solid #B0151C",
+      backgroundColor: "#1b1b1b",
     },
     height: "50%",
   },
