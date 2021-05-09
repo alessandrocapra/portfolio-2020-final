@@ -29,6 +29,7 @@ import ProjectMenuWidget from "./projectMenuItem"
 const useStyles = makeStyles(theme => ({
   active: {
     fontWeight: "700",
+    borderBottom: "4px solid #B0151C !important",
   },
   menuButton: {
     marginRight: "1rem",
@@ -47,29 +48,30 @@ const useStyles = makeStyles(theme => ({
   },
   projectMenu: {
     position: "fixed",
-    top: "5rem",
+    top: "4.3rem",
     left: "50%",
     transform: "translateX(-50%)",
-    backgroundColor: "rgba(18,18,18,0.9)",
-    width: "80vw",
-    height: "70vh",
+    backgroundColor: "rgba(18,18,18,1)",
+    width: "85vw",
+    height: "88vh",
     zIndex: 1,
     display: "flex",
     overflow: "hidden",
     borderRadius: "1rem",
+    border: "0.5px solid gray",
   },
 }))
 
-export const _Link = styled(({ isProjectPage, ...other }) => (
-  <Link {...other} />
-))({
+const _Link = styled(({ isProjectPage, ...other }) => <Link {...other} />)({
   padding: "1rem 2rem",
   textDecoration: "none",
   fontFamily: "'Fira Sans', sans-serif",
   fontSize: "1.25rem",
   color: "#fff",
+  borderBottom: "4px solid transparent",
+  transition: "0.2s",
   "&:hover": {
-    backgroundColor: "#121212",
+    borderBottom: "4px solid #B0151C",
   },
 })
 
@@ -79,11 +81,7 @@ const Header = ({ isProjectPage }) => {
   const open = Boolean(anchorEl)
   const [drawerOpen, setDrawerOpen] = React.useState(false)
   const [projectsListItemOpen, setProjectsListItemOpen] = React.useState(false)
-  const [projectMenuOpen, setProjectMenuOpen] = React.useState(true)
-
-  const handleProjectsMenu = event => {
-    setAnchorEl(event.currentTarget)
-  }
+  const [projectMenuOpen, setProjectMenuOpen] = React.useState(false)
 
   const toggleDrawer = open => event => {
     if (
@@ -96,16 +94,12 @@ const Header = ({ isProjectPage }) => {
     setDrawerOpen(open)
   }
 
-  const handleClose = () => {
-    setAnchorEl(null)
-  }
-
   return (
     <>
       <AppBar
         position="sticky"
         color="inherit"
-        style={{ backgroundColor: "#B0151C" }}
+        style={{ backgroundColor: "#1b1b1b" }}
       >
         <Toolbar className={classes.toolBar}>
           <Hidden smUp>
@@ -208,6 +202,7 @@ const Header = ({ isProjectPage }) => {
               onMouseEnter={() => setProjectMenuOpen(true)}
               activeClassName={classes.active}
               isProjectPage={isProjectPage}
+              partiallyActive={true}
             >
               Projects
             </_Link>
@@ -241,31 +236,37 @@ const Header = ({ isProjectPage }) => {
                 image="custodian_home.png"
                 desc="Designed and coded in React Native."
                 link="/project/custodian"
+                projectMenu={setProjectMenuOpen}
               />
               <ProjectMenuWidget
                 title="Whistleblower platform"
-                image="custodian_home.png"
+                image="whistleblower_home.png"
                 desc="SaaS application to enable whistleblowers within organizations."
+                projectMenu={setProjectMenuOpen}
               />
               <ProjectMenuWidget
                 title="Gamified respiratory exercises"
-                image="custodian_home.png"
-                desc="Master's thesis project to help children with Duchenne Muscular Dystrophy to exercise."
+                image="thesis_home.png"
+                desc="Master's thesis project."
+                projectMenu={setProjectMenuOpen}
               />
               <ProjectMenuWidget
                 title="Babbelbord"
-                image="custodian_home.png"
-                desc="Tech-enhanced board game to help people with dementia reconnect with their relatives."
+                image="babbelbord_home.png"
+                desc="Tech-enhanced board game to help people with dementia."
+                projectMenu={setProjectMenuOpen}
               />
               <ProjectMenuWidget
                 title="Beathoven"
-                image="custodian_home.png"
-                desc="Exploring alternative interfaces allowing deaf people to experience music."
+                image="beathoven_home.png"
+                desc="Alternative interfaces allowing deaf people to experience music."
+                projectMenu={setProjectMenuOpen}
               />
               <ProjectMenuWidget
                 title="Jammin"
-                image="custodian_home.png"
+                image="jammin_home.png"
                 desc="Portal to find like-minded musicians to jam together."
+                projectMenu={setProjectMenuOpen}
               />
             </Grid>
           </Box>

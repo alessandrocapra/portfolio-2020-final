@@ -1,8 +1,23 @@
 import React from "react"
 import { Grid, Typography } from "@material-ui/core"
-import { makeStyles } from "@material-ui/core/styles"
+import { makeStyles, styled } from "@material-ui/core/styles"
 import Image from "./image"
-import { _Link } from "./header"
+import { Link } from "gatsby"
+import theme from "../theme"
+
+const _LinkProject = styled(({ isProjectPage, ...other }) => (
+  <Link {...other} />
+))({
+  padding: theme.spacing(8),
+  textDecoration: "none",
+  fontFamily: "'Fira Sans', sans-serif",
+  fontSize: "1.25rem",
+  color: "#fff",
+  borderBottom: "4px solid transparent",
+  "&:hover": {
+    borderBottom: "4px solid #B0151C",
+  },
+})
 
 const useStyles = makeStyles(theme => ({
   image: {
@@ -15,8 +30,10 @@ const useStyles = makeStyles(theme => ({
     alignItems: "center",
     justifyContent: "flex-start",
     padding: theme.spacing(8),
+    borderBottom: "8px solid transparent",
+    transition: "0.2s",
     "&:hover": {
-      backgroundColor: "red",
+      borderBottom: "8px solid #B0151C",
     },
     height: "50%",
   },
@@ -34,8 +51,10 @@ const ProjectMenuWidget = props => {
       xs={12}
       sm={4}
       className={classes.container}
-      component={_Link}
+      component={_LinkProject}
       to={props.link || "/project/babbelbord"}
+      onClick={props.projectMenu(true)}
+      style={{ textAlign: "center" }}
     >
       <Image imgName={props.image} className={classes.image} />
       <Typography variant="h5" className={classes.title}>
