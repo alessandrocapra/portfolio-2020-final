@@ -11,7 +11,7 @@ import {
   ListItemIcon,
   Collapse,
   Grid,
-  Typography,
+  Fade,
 } from "@material-ui/core"
 import { styled, makeStyles } from "@material-ui/core/styles"
 import AppBar from "@material-ui/core/AppBar"
@@ -191,6 +191,7 @@ const Header = ({ isProjectPage }) => {
             <_Link
               to="/"
               activeClassName={classes.active}
+              onMouseEnter={() => setProjectMenuOpen(false)}
               isProjectPage={isProjectPage}
             >
               Home
@@ -209,6 +210,7 @@ const Header = ({ isProjectPage }) => {
             <_Link
               to="/page-2"
               activeClassName={classes.active}
+              onMouseEnter={() => setProjectMenuOpen(false)}
               isProjectPage={isProjectPage}
             >
               About
@@ -217,58 +219,60 @@ const Header = ({ isProjectPage }) => {
         </Toolbar>
       </AppBar>
       {projectMenuOpen && (
-        <Box
-          style={{ position: "relative" }}
-          onMouseLeave={() => setProjectMenuOpen(false)}
-        >
-          <Box className={classes.projectMenu}>
-            <Grid
-              container
-              style={{
-                alignItems: "center",
-                justifyContent: "flex-start",
-              }}
-            >
-              <ProjectMenuWidget
-                title="Crypto custodian app"
-                image="custodian_home.png"
-                desc="Designed and coded in React Native."
-                link="/project/custodian"
-                projectMenu={setProjectMenuOpen}
-              />
-              <ProjectMenuWidget
-                title="Whistleblower platform"
-                image="whistleblower_home.png"
-                desc="SaaS application to enable whistleblowers within organizations."
-                projectMenu={setProjectMenuOpen}
-              />
-              <ProjectMenuWidget
-                title="Gamified respiratory exercises"
-                image="thesis_home.png"
-                desc="Master's thesis project."
-                projectMenu={setProjectMenuOpen}
-              />
-              <ProjectMenuWidget
-                title="Babbelbord"
-                image="babbelbord_home.png"
-                desc="Tech-enhanced board game to help people with dementia."
-                projectMenu={setProjectMenuOpen}
-              />
-              <ProjectMenuWidget
-                title="Beathoven"
-                image="beathoven_home.png"
-                desc="Alternative interfaces allowing deaf people to experience music."
-                projectMenu={setProjectMenuOpen}
-              />
-              <ProjectMenuWidget
-                title="Jammin"
-                image="jammin_home.png"
-                desc="Portal to find like-minded musicians to jam together."
-                projectMenu={setProjectMenuOpen}
-              />
-            </Grid>
+        <Fade in={projectMenuOpen}>
+          <Box
+            style={{ position: "relative" }}
+            onMouseLeave={() => setProjectMenuOpen(false)}
+          >
+            <Box className={classes.projectMenu}>
+              <Grid
+                container
+                style={{
+                  alignItems: "center",
+                  justifyContent: "flex-start",
+                }}
+              >
+                <ProjectMenuWidget
+                  title="Crypto custodian app"
+                  image="custodian_home.png"
+                  desc="Designed and coded in React Native."
+                  link="/project/custodian"
+                  projectMenu={setProjectMenuOpen}
+                />
+                <ProjectMenuWidget
+                  title="Whistleblower platform"
+                  image="whistleblower_home.png"
+                  desc="SaaS application to enable whistleblowers within organizations."
+                  projectMenu={setProjectMenuOpen}
+                />
+                <ProjectMenuWidget
+                  title="Gamified respiratory exercises"
+                  image="thesis_home.png"
+                  desc="Master's thesis project."
+                  projectMenu={setProjectMenuOpen}
+                />
+                <ProjectMenuWidget
+                  title="Babbelbord"
+                  image="babbelbord_home.png"
+                  desc="Tech-enhanced board game to help people with dementia."
+                  projectMenu={setProjectMenuOpen}
+                />
+                <ProjectMenuWidget
+                  title="Beathoven"
+                  image="beathoven_home.png"
+                  desc="Alternative interfaces allowing deaf people to experience music."
+                  projectMenu={setProjectMenuOpen}
+                />
+                <ProjectMenuWidget
+                  title="Jammin"
+                  image="jammin_home.png"
+                  desc="Portal to find like-minded musicians to jam together."
+                  projectMenu={setProjectMenuOpen}
+                />
+              </Grid>
+            </Box>
           </Box>
-        </Box>
+        </Fade>
       )}
     </>
   )
