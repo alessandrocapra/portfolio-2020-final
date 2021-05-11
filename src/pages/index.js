@@ -173,6 +173,7 @@ const IndexPage = () => {
           title="Whistleblower platform"
           description="SaaS solution to support the management of a whistleblowing solution within an organization."
           tags={["UX Design", "UI Design"]}
+          projectLink="/project/whistleblower"
           image="whistleblower_home.png"
         />
         <ProjectHome

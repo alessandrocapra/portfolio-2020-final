@@ -149,10 +149,14 @@ const Header = ({ isProjectPage }) => {
                     unmountOnExit
                   >
                     <List component="div" disablePadding>
-                      <ListItem button>
+                      <ListItem button component={Link} to="/project/custodian">
                         <ListItemText inset primary="Crypto custodian app" />
                       </ListItem>
-                      <ListItem button>
+                      <ListItem
+                        button
+                        component={Link}
+                        to="/project/whistleblower"
+                      >
                         <ListItemText inset primary="Whistleblower platform" />
                       </ListItem>
                       <ListItem button>
@@ -243,6 +247,7 @@ const Header = ({ isProjectPage }) => {
                   title="Whistleblower platform"
                   image="whistleblower_home.png"
                   desc="SaaS application to enable whistleblowers within organizations."
+                  link="/project/whistleblower"
                   projectMenu={setProjectMenuOpen}
                 />
                 <ProjectMenuWidget
