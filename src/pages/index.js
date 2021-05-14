@@ -149,7 +149,7 @@ const IndexPage = () => {
           <Typography variant="subtitle1" className={classes.mainDesc}>
             <span className={classes.underlined}>Frontend</span> developer with
             a strong <span className={classes.underlined}>UX</span> background.
-            <br /> Ideate, research, design, develop, repeat.
+            <br /> Ideate, research, design, test, develop, repeat.
           </Typography>
         </Box>
       </StyledBackgroundSection>

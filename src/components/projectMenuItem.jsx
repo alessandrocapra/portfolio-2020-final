@@ -76,7 +76,11 @@ const ProjectMenuWidget = props => {
       to={props.link || "/project/babbelbord"}
       onClick={props.projectMenu(true)}
     >
-      <Image imgName={props.image} className={classes.image} />
+      <Image
+        imgName={props.image}
+        imgStyle={{ borderRadius: 0 }}
+        className={classes.image}
+      />
       <Box className={classes.textContainer}>
         <Typography variant="h5" className={classes.title}>
           {props.title}

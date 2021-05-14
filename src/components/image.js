@@ -39,7 +39,12 @@ const Image = ({ imgName, ...other }) => (
       return (
         <Img
           fluid={image.node.fluid}
-          imgStyle={{ borderRadius: "2rem" }}
+          imgStyle={{
+            borderRadius: "0.2rem",
+            "@media (min-width:600px)": {
+              fontSize: "2rem",
+            },
+          }}
           {...other}
         />
       )
