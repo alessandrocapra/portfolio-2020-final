@@ -159,10 +159,14 @@ const Header = ({ isProjectPage }) => {
                       >
                         <ListItemText inset primary="Whistleblower platform" />
                       </ListItem>
-                      <ListItem button>
+                      <ListItem
+                        button
+                        component={Link}
+                        to="/project/master-thesis"
+                      >
                         <ListItemText
                           inset
-                          primary="Respiratory exercises for children with DMD"
+                          primary="Gamified respiratory exercises"
                         />
                       </ListItem>
                       <ListItem
@@ -254,12 +258,14 @@ const Header = ({ isProjectPage }) => {
                   title="Gamified respiratory exercises"
                   image="thesis_home.png"
                   desc="Master's thesis project."
+                  link="/project/master-thesis"
                   projectMenu={setProjectMenuOpen}
                 />
                 <ProjectMenuWidget
                   title="Babbelbord"
                   image="babbelbord_home.png"
                   desc="Tech-enhanced board game to help people with dementia."
+                  link="/project/babbelbord"
                   projectMenu={setProjectMenuOpen}
                 />
                 <ProjectMenuWidget

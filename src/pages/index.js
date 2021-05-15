@@ -177,9 +177,10 @@ const IndexPage = () => {
           image="whistleblower_home.png"
         />
         <ProjectHome
-          title="Respiratory exercises for children affected by Duchenne Muscular Dystrophy"
+          title="Gamified respiratory exercises"
           description="A custom breath-analysing hardware coupled with a videogame to encourage children affected by Duchenne Muscular Dystrophy to improve their breathing independently, outside of therapy hours."
           tags={["UX Design", "UI Design", "React Native"]}
+          projectLink="/project/master-thesis"
           image="thesis_home.png"
         />
         <ProjectHome
