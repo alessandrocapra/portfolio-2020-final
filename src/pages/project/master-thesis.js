@@ -53,69 +53,68 @@ const MasterThesisPage = () => {
           </Typography>
         </Box>
         <Box py={14}>
-          <Typography variant="h2">Research</Typography>
           <Grid container spacing={6}>
             <Grid item xs={12} sm={6}>
-              <Typography variant="body1" component="div">
-                <strong>Stakeholders</strong>
-                <ul>
-                  <li>Relatives from Dementia patients</li>
-                  <li>Caretakers from Bruggerbosch (Enschede, NL)</li>
-                  <li>People affected by dementia</li>
-                </ul>
-                <br />
-              </Typography>
-              <Typography variant="body1">
-                <strong>Market analysis</strong>
-                <br />
-                Existing non-pharmaceutical solutions like life story books,
-                online versions which can embed sounds, images and videos. We
-                try to investigate a new solution to explore this approach even
-                further, by also embedding gamification elements
-              </Typography>
+              <Image imgName="master-thesis-research.png" />
             </Grid>
             <Grid item xs={12} sm={6}>
-              <Typography variant="body1">
-                <strong>Methods</strong>
-                <br />
-                observations on-site (difficult to communicate with dementia
-                patients): understanding of environment and social interactions.
-                Interviews with healthy elderly, caregivers and relatives.
-              </Typography>
-              <br />
-              <br />
+              <Typography variant="h2">Research</Typography>
               <Typography variant="body1" component="div">
-                <strong>Iterative prototyping</strong>
+                The main stakeholders involved in this project were:
                 <ul>
                   <li>
-                    vision (structured brainstorming sessions to produce a lot
-                    of ideas and then combine them), prototype, evaluation.
+                    children affected by Duchenne Muscular Dystrophy (DMD);
                   </li>
+                  <li>parents of the aforementioned children;</li>
                   <li>
-                    First iteration: memory card game only, with wizard of OZ
-                    testing
-                  </li>
-                  <li>
-                    Second iteration: simple paper prototype, similar to final
-                    solution
-                  </li>
-                  <li>
-                    Third iteration: Added cards to collect as points, plus
-                    special squares with different meanings. A/B testing to see
-                    which interfcae was clearer to use for the caregiver -
-                    Fourth iteration: final version of prototype
+                    therapists of the Roessingh Revalidatie Centrum in Enschede,
+                    the Netherlands
                   </li>
                 </ul>
                 <br />
+              </Typography>
+              <Typography variant="body1">
+                To get a deeper understanding about the user behaviors and the
+                context of use, I used two different methods to gather data: •
+                semi-structured interviews, which consist in following a script
+                but allowing to diverge if interesting insights arise; •
+                observations, to see the real user behavior (many times what the
+                people say do not match what they do).
+              </Typography>
+              <Typography variant="body1">
+                The recordings of the interviews were transcribed to ease the
+                process of thematic analysis.
               </Typography>
             </Grid>
           </Grid>
         </Box>
-        <Image
-          imgName="babbelbord_brainstorming.png"
-          style={{ overflow: "unset" }}
-          imgStyle={{ left: "-20vw" }}
-        />
+        <Box py={14} className={classes.leftSection}>
+          <Typography variant="h2">Users and stakeholders</Typography>
+          <Typography variant="body1" component="div">
+            <strong>Therapists:</strong>
+            <br />
+            <ul>
+              <li>
+                home training is ideal: safe without therapist assistance,
+                gamification as essential element for retention
+              </li>
+              <li>children are busy, motivation to exercise at home is low</li>
+              <li>
+                therapists need control over the therapy: weekly planning of
+                exercises, ability to change settings to keep children
+                challenged and calibration of breath function.
+              </li>
+              <li>
+                social gaming is important: ability to play with friends online
+                is highly desirable.
+              </li>
+              <li>
+                add features that are missing in similar products, for instance
+                saving calibration data to see the performance over time.
+              </li>
+            </ul>
+          </Typography>
+        </Box>
         <Box py={14}>
           <Grid
             container
