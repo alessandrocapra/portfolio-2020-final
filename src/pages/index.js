@@ -194,12 +194,14 @@ const IndexPage = () => {
           title="Beathoven"
           description="With Beathoven, we researched new ways to allow deaf people to experience music by combining different sensory modalities such as haptics and sight. The final product consisted in a vibrating forearm glove and a VR headset."
           tags={["User research", "Full-stack development"]}
+          projectLink="/project/beathoven"
           image="beathoven_home.png"
         />
         <ProjectHome
           title="Jammin"
           description="Concept for an online platform which allows musicians to find like-minded people to start a band or occasionally jam with."
           tags={["User research", "Frontend development"]}
+          projectLink="/project/jammin"
           image="jammin_home.png"
         />
       </Grid>

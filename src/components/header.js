@@ -176,10 +176,10 @@ const Header = ({ isProjectPage }) => {
                       >
                         <ListItemText inset primary="Babbelbord" />
                       </ListItem>
-                      <ListItem button>
+                      <ListItem button component={Link} to="/project/beathoven">
                         <ListItemText inset primary="Beathoven" />
                       </ListItem>
-                      <ListItem button>
+                      <ListItem button component={Link} to="/project/jammin">
                         <ListItemText inset primary="Jammin" />
                       </ListItem>
                     </List>
@@ -188,7 +188,11 @@ const Header = ({ isProjectPage }) => {
                     <ListItemIcon>
                       <InboxRoundedIcon />
                     </ListItemIcon>
-                    <ListItemText primary="About" />
+                    <ListItemText
+                      primary="About"
+                      component={Link}
+                      to="/about"
+                    />
                   </ListItem>
                 </List>
               </div>
@@ -272,12 +276,14 @@ const Header = ({ isProjectPage }) => {
                   title="Beathoven"
                   image="beathoven_home.png"
                   desc="Alternative interfaces allowing deaf people to experience music."
+                  link="/project/beathoven"
                   projectMenu={setProjectMenuOpen}
                 />
                 <ProjectMenuWidget
                   title="Jammin"
                   image="jammin_home.png"
                   desc="Portal to find like-minded musicians to jam together."
+                  link="/project/jammin"
                   projectMenu={setProjectMenuOpen}
                 />
               </Grid>

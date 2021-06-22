@@ -93,6 +93,7 @@ const Footer = () => {
               value={message}
               onChange={event => setMessage(event.target.value)}
             />
+            <input type="hidden" name="contact" value="Contact" />
             <Button
               type="submit"
               variant="contained"
