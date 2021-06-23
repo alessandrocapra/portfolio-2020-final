@@ -19,10 +19,10 @@ const Whistleblower = () => {
 
   return (
     <Layout>
-      <SEO title="Babbelbord project" />
+      <SEO title="Whistleblower" />
       <ProjectHeader
         headerImage={"whistleblower-header.png"}
-        title="Whistleblowing "
+        title="Whistleblower platform "
         areas={["UX Design", "UI Design"]}
       />
       <Container>
