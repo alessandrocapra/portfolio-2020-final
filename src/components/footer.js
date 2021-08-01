@@ -9,6 +9,7 @@ import {
   Icon,
 } from "@material-ui/core"
 import SendRounded from "@material-ui/icons/SendRounded"
+import ReCAPTCHA from "react-google-recaptcha"
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -58,12 +59,12 @@ const Footer = () => {
           <form
             name="contact"
             data-netlify="true"
+            data-netlify-recaptcha="true"
             method="POST"
-            noValidate
-            autoComplete="off"
             className={classes.contactForm}
             onSubmit={handleSubmit}
           >
+            <input type="hidden" name="form-name" value="contact" />
             <TextField
               id="name"
               name="name"
@@ -93,7 +94,7 @@ const Footer = () => {
               value={message}
               onChange={event => setMessage(event.target.value)}
             />
-            <input type="hidden" name="contact" value="Contact" />
+            <ReCAPTCHA sitekey="{process.env.GATSBY_RECAPTCHA_KEY}" />
             <Button
               type="submit"
               variant="contained"
