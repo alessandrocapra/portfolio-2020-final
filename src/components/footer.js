@@ -94,7 +94,7 @@ const Footer = () => {
               value={message}
               onChange={event => setMessage(event.target.value)}
             />
-            <ReCAPTCHA sitekey="{process.env.SITE_RECAPTCHA_KEY}" />
+            <ReCAPTCHA sitekey="{process.env.GATSBY_RECAPTCHA_KEY}" />
             <Button
               type="submit"
               variant="contained"
