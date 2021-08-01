@@ -38,18 +38,22 @@ const Footer = () => {
   const [email, setEmail] = useState("")
   const [message, setMessage] = useState("")
 
-  const handleSubmit = e => {
-    // TODO finish integration Netlify: https://www.netlify.com/blog/2017/07/20/how-to-integrate-netlifys-form-handling-in-a-react-app/?_ga=2.137835957.445443183.1618057278-1356593327.1618057278
-    // fetch("/", {
-    //   method: "POST",
-    //   headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    //   body: encode({ "form-name": "contact", ...this.state }),
-    // })
-    //   .then(() => alert("Success!"))
-    //   .catch(error => alert(error))
+  // const handleSubmit = e => {
+  //   fetch("/", {
+  //     method: "POST",
+  //     headers: { "Content-Type": "application/x-www-form-urlencoded" },
+  //     body: encode({
+  //       "form-name": "contact",
+  //       name: name,
+  //       email: email,
+  //       message: message,
+  //     }),
+  //   })
+  //     .then(() => alert("Success!"))
+  //     .catch(error => alert(error))
 
-    e.preventDefault()
-  }
+  //   e.preventDefault()
+  // }
 
   return (
     <Box component="footer" className={classes.root}>
@@ -61,7 +65,6 @@ const Footer = () => {
             data-netlify="true"
             method="POST"
             className={classes.contactForm}
-            onSubmit={handleSubmit}
           >
             <input type="hidden" name="form-name" value="contact" />
             <TextField
