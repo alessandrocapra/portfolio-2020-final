@@ -63,6 +63,7 @@ const Footer = () => {
           <form
             name="contact"
             data-netlify="true"
+            data-netlify-recaptcha="true"
             method="POST"
             className={classes.contactForm}
           >
@@ -96,7 +97,7 @@ const Footer = () => {
               value={message}
               onChange={event => setMessage(event.target.value)}
             />
-            {/* <ReCAPTCHA sitekey="6LcrudIbAAAAADc0yLbaASRspEi3ACSu0WWtAv2N" /> */}
+            <ReCAPTCHA sitekey="6LcrudIbAAAAADc0yLbaASRspEi3ACSu0WWtAv2N" />
             <Button
               type="submit"
               variant="contained"
