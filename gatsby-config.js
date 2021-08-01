@@ -5,6 +5,12 @@ module.exports = {
     author: `Alessandro Capra`,
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-env-variables`,
+      options: {
+        allowList: ["GATSBY_RECAPTCHA_KEY"],
+      },
+    },
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
